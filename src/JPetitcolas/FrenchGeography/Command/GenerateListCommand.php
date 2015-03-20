@@ -2,6 +2,8 @@
 
 namespace JPetitcolas\FrenchGeography\Command;
 
+use JPetitcolas\FrenchGeography\Formatter\FormatterInterface;
+use JPetitcolas\FrenchGeography\Parser\ParserInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -9,9 +11,9 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class GenerateListCommand extends Command
 {
-    protected static $availableTypes = array('region', 'department', 'city');
-    protected static $availableFormats = array('yaml', 'sql');
-    protected static $availableSourceFormats = array('insee');
+    protected static $availableTypes = ['region', 'department', 'city'];
+    protected static $availableFormats = ['yaml', 'sql'];
+    protected static $availableSourceFormats = ['insee'];
 
     protected function configure()
     {
@@ -43,6 +45,7 @@ class GenerateListCommand extends Command
         $parserClass  = 'JPetitcolas\\FrenchGeography\\Parser\\'.ucfirst($input->getArgument('sourceFormat')).'\\';
         $parserClass .= ucfirst($input->getArgument('sourceFormat')).ucfirst($input->getArgument('type')).'Parser';
 
+        /** @var ParserInterface $parser */
         $parser = new $parserClass();
         $parser->setSource($input->getArgument('source'));
         $parsedItems = $parser->parse();
@@ -56,6 +59,7 @@ class GenerateListCommand extends Command
         $formatterClassName  = 'JPetitcolas\\FrenchGeography\\Formatter\\'.ucfirst($input->getArgument('type')).'\\';
         $formatterClassName .= ucfirst($input->getArgument('type')).ucfirst($input->getArgument('format')).'Formatter';
 
+        /** @var FormatterInterface $formatter */
         $formatter = new $formatterClassName($parsedItems);
         $formattedOutput = $formatter->format();
 

@@ -2,8 +2,6 @@
 
 namespace JPetitcolas\FrenchGeography\Parser;
 
-use JPetitcolas\FrenchGeography\Parser\ParserInterface;
-
 abstract class Parser implements ParserInterface
 {
     protected $sourcePath;
@@ -15,5 +13,9 @@ abstract class Parser implements ParserInterface
         }
 
         $this->sourcePath = $sourcePath;
+    }
+
+    public function parse()
+    {
     }
 }

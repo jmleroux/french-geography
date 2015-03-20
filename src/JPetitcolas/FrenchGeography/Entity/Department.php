@@ -29,7 +29,7 @@ class Department
         $this->code = $code;
     }
 
-    public function getChiefTown($chiefTown)
+    public function getChiefTown()
     {
         return $this->chiefTown;
     }
