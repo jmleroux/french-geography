@@ -11,7 +11,7 @@ class RegionYamlFormatter extends RegionFormatter implements FormatterInterface
         $output = 'regions:'.PHP_EOL.PHP_EOL;
 
         foreach ($this->regions as $region) {
-            $output .= sprintf('    region_%d:', $region->getId()).PHP_EOL;
+            $output .= sprintf('    region_%d:', $region->getCodeInsee()).PHP_EOL;
             $output .= sprintf('        name: "%s"', $region->getName()).PHP_EOL;
             $output .= PHP_EOL;
         }

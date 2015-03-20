@@ -43,7 +43,7 @@ EOL;
     protected function generateDataQuery(City $city)
     {
         $sql = sprintf('(NULL, %d, "%s", "%s", "%s")',
-            $city->getRegionId(),
+            $city->getRegionCode(),
             $city->getDepartmentCode(),
             $city->getName(),
             $city->getPrefix()

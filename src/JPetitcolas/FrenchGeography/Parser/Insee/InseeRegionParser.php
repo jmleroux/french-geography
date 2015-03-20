@@ -27,7 +27,7 @@ class InseeRegionParser extends Parser implements ParserInterface
             }
 
             $region = new Region();
-            $region->setId($line[0]);
+            $region->setCodeInsee($line[0]);
             $region->setName(utf8_encode($line[4]));
 
             $regions[] = $region;

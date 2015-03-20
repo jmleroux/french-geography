@@ -38,7 +38,7 @@ EOL;
 
     protected function generateDataQuery(Region $region)
     {
-        $sql = sprintf('(%d, "%s")', $region->getId(), $region->getName());
+        $sql = sprintf('(%d, "%s")', $region->getCodeInsee(), $region->getName());
         return $sql;
     }
 }

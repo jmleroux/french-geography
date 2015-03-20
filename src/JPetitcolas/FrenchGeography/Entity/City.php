@@ -4,19 +4,23 @@ namespace JPetitcolas\FrenchGeography\Entity;
 
 class City
 {
-    protected $regionId;
+    /** @var  string */
+    protected $regionCode;
+    /** @var  string */
     protected $departmentCode;
+    /** @var  string */
     protected $name;
+    /** @var  string */
     protected $prefix;
 
-    public function getRegionId()
+    public function getRegionCode()
     {
-        return $this->regionId;
+        return $this->regionCode;
     }
 
-    public function setRegionId($regionId)
+    public function setRegionCode($regionCode)
     {
-        $this->regionId = $regionId;
+        $this->regionCode = $regionCode;
     }
 
     public function getDepartmentCode()

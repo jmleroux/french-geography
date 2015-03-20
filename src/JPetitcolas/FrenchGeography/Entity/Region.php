@@ -4,17 +4,19 @@ namespace JPetitcolas\FrenchGeography\Entity;
 
 class Region
 {
-    protected $id;
+    /** @var  string */
+    protected $codeInsee;
+    /** @var  string */
     protected $name;
 
-    public function getId()
+    public function getCodeInsee()
     {
-        return $this->id;
+        return $this->codeInsee;
     }
 
-    public function setId($id)
+    public function setCodeInsee($codeInsee)
     {
-        $this->id = $id;
+        $this->codeInsee = $codeInsee;
     }
 
     public function getName()
@@ -24,6 +26,6 @@ class Region
 
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = trim($name);
     }
 }

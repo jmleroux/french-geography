@@ -13,7 +13,7 @@ class DepartmentYamlFormatter extends DepartmentFormatter implements FormatterIn
         foreach ($this->departments as $department) {
             $output .= sprintf('    department_%d:', $department->getCode()).PHP_EOL;
             $output .= sprintf('        name: "%s"', $department->getName()).PHP_EOL;
-            $output .= sprintf('        region_id: %d', $department->getRegionId()).PHP_EOL;
+            $output .= sprintf('        region_id: %d', $department->getRegionCode()).PHP_EOL;
             $output .= PHP_EOL;
         }
 

@@ -42,7 +42,7 @@ EOL;
         $sql = sprintf('("%s", "%s", %d)',
             $department->getCode(),
             $department->getName(),
-            $department->getRegionId()
+            $department->getRegionCode()
         );
 
         return $sql;
